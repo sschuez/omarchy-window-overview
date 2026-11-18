@@ -6,7 +6,7 @@ are there. The same view doubles as a Mac-style Alt+Tab switcher.
 
 A plugin for the [Omarchy](https://omarchy.org) shell.
 
-![Window Overview: six windows from five workspaces as live thumbnails under a search field, each with its workspace number, app icon and title; one is selected](preview.png)
+![Window Overview: five windows from four workspaces as live thumbnails under a search field, each with its workspace number, app icon and title; one is selected](preview.png)
 
 ## What it does
 
