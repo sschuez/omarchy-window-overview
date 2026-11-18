@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.sschuez.window-overview",
+  "name": "Window Overview",
+  "version": "1.0.0",
+  "author": "Stephen Schuez",
+  "license": "MIT",
+  "repository": "https://github.com/sschuez/omarchy-window-overview",
+  "description": "Every open window as a live thumbnail: type to search, press a workspace's number, or hit Enter to jump there. Doubles as a Mac-style Alt+Tab switcher.",
+  "kinds": [
+    "overlay"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "overlay": "WindowOverview.qml"
+  }
+}
