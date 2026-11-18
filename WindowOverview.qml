@@ -225,12 +225,17 @@ Item {
     return window && Windows.validAddress(window.address) ? "window = \"address:0x" + window.address + "\"" : ""
   }
 
+  // Jump first, close second. Closing first hands the keyboard back to the
+  // window used before for a moment, and some apps (Electron ones) answer
+  // getting it back by asking the compositor to activate them, which lands
+  // after the jump and undoes it.
   function activate(index) {
     var window = root.target(index)
+    if (window) {
+      Hyprland.dispatch("hl.dsp.focus({ " + window + " })")
+      Hyprland.dispatch("hl.dsp.window.alter_zorder({ mode = \"top\", " + window + " })")
+    }
     root.dismiss()
-    if (!window) return
-    Hyprland.dispatch("hl.dsp.focus({ " + window + " })")
-    Hyprland.dispatch("hl.dsp.window.alter_zorder({ mode = \"top\", " + window + " })")
   }
 
   // Close the window at `index` and stay open, so several can go in a row.
