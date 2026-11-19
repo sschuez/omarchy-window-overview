@@ -73,6 +73,27 @@ o.rebind("ALT + TAB", "Switch window", switch_window("next"), { repeating = true
 o.rebind("ALT + SHIFT + TAB", "Switch window back", switch_window("previous"), { repeating = true })
 ```
 
+To hold the switcher on Super instead (like Cmd+Tab on a Mac), use `SUPER`
+and `Super_L` / `Super_R` above. Omarchy binds Super+arrows to move focus, so
+the arrows never reach the switcher; route them to it while switching, with
+`switch-previous`, `switch-next`, `switch-up` and `switch-down`:
+
+```lua
+local function arrow(direction, step)
+  return function()
+    if switching then
+      hl.dispatch(hl.dsp.global("window-overview:switch-" .. step))
+    else
+      hl.dispatch(hl.dsp.focus({ direction = direction }))
+    end
+  end
+end
+o.rebind("SUPER + LEFT", "Focus on left window", arrow("l", "previous"), { repeating = true })
+o.rebind("SUPER + RIGHT", "Focus on right window", arrow("r", "next"), { repeating = true })
+o.rebind("SUPER + UP", "Focus on above window", arrow("u", "up"), { repeating = true })
+o.rebind("SUPER + DOWN", "Focus on below window", arrow("d", "down"), { repeating = true })
+```
+
 Hyprland reloads its config on save. Check it with
 `hyprctl reload && hyprctl configerrors`.
 

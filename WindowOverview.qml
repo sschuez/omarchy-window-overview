@@ -622,6 +622,23 @@ Item {
     onPressed: root.cycle(-1)
   }
 
+  // A row up or down while switching. For when the switcher is held on a
+  // modifier whose arrow keys Hyprland already binds (Super+arrows in Omarchy),
+  // so the arrows never reach the overview itself.
+  GlobalShortcut {
+    appid: "window-overview"
+    name: "switch-up"
+    description: "Select the window above while switching"
+    onPressed: if (root.opened) root.selectRow(-1)
+  }
+
+  GlobalShortcut {
+    appid: "window-overview"
+    name: "switch-down"
+    description: "Select the window below while switching"
+    onPressed: if (root.opened) root.selectRow(1)
+  }
+
   GlobalShortcut {
     appid: "window-overview"
     name: "switch-commit"
