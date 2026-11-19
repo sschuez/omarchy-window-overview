@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.sschuez.window-overview",
   "name": "Window Overview",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Stephen Schuez",
   "license": "MIT",
   "repository": "https://github.com/sschuez/omarchy-window-overview",
